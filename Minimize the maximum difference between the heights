@@ -1,0 +1,79 @@
+class Solution {
+    int getMinDiff(int[] arr, int n, int k) {
+        
+        sort(arr, 0, n-1);
+        int ans= arr[n-1]-arr[0];
+        int temp_Min=arr[0];
+        int temp_Max=arr[n-1];
+        
+        for(int i=1;i<n;i++){
+            if(arr[i]-k<0){
+                continue;
+            }
+            temp_Min=min(arr[0]+k,arr[i]-k);
+            temp_Max=max(arr[i-1]+k, arr[n-1]-k);
+            ans= min(ans, temp_Max-temp_Min);
+        }
+        return ans;
+    }
+    int max(int a, int b){
+        if(a>b){
+            return a;
+        }
+        else{
+            return b;
+        }
+    }
+    int min(int a, int b){
+        if(a<b){
+            return a;
+        }
+        else{
+            return b;
+        }
+    }
+    
+    void sort(int arr[],int l,int r){
+        if (l < r) {
+            int m = l + (r - l) / 2;
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+            merge(arr, l, m, r);
+        }
+    }
+    void merge(int arr[], int l, int m, int r)
+    {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+        
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+        int i = 0, j = 0;
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+}
