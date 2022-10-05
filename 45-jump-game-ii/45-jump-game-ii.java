@@ -1,6 +1,8 @@
 
 class Solution {
     public int jump(int[] nums) {
+        
+//         dynamic apporach
         int len=nums.length;
         int jump[]= new int[len];
         jump[0]=0;
