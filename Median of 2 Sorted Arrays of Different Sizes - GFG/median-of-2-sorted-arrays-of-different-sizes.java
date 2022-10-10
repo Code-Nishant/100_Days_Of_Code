@@ -41,7 +41,7 @@ class GFG
         int len1 = nums1.length;
         int len2 = nums2.length;
         if (len1 > len2)
-            return medianOfArrays(len1,len2,nums2, nums1); // Swapping to make A smaller
+            return medianOfArrays(len1,len2,nums2, nums1);
  
         int low = 0;
         int high = len1;
