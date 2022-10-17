@@ -169,9 +169,7 @@ class Intersect
          else{
              return -1;
          }
-        // while(one!=null && two!=null){
-        //     if
-        // }
+        
 	}
 }
 
