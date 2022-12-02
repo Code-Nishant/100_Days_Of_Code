@@ -114,4 +114,14 @@ class Tree {
         }
         return current.data;
     }
+    int maxValue(Node node){
+        Node current= node;
+        if(current==null){
+            return -1;
+        }
+        while(current.right!=null){
+            current=current.right;
+        }
+        return current.data;
+    }
 }
